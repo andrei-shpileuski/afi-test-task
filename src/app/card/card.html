@@ -1,0 +1,52 @@
+<div class="course-card">
+  <div class="course-image">
+    <img [src]="course.imageUrl" [alt]="course.title" class="image">
+    @if (getProgressPercentage() > 0) {
+      <div class="course-badge">
+        {{ getProgressPercentage() }}%
+      </div>
+    }
+  </div>
+
+  <div class="course-content">
+    <h3 class="course-title">{{ course.title }}</h3>
+    <p class="course-description">{{ course.description }}</p>
+
+    <div class="course-meta">
+      <div class="rating">
+        <span class="stars">
+          @for (star of getRatingStars(); track $index) {
+            <span
+                  class="star"
+                  [class.filled]="star <= course.rating">
+            ★
+          </span>
+          }
+        </span>
+        <span class="rating-value">{{ course.rating }}/5</span>
+      </div>
+
+      <div class="duration">
+        ⏱ {{ getFormattedDuration() }}
+      </div>
+    </div>
+
+    @if (course.progress > 0) {
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+        </div>
+        <div class="progress-text">
+          Пройдено: {{ getProgressPercentage() }}%
+        </div>
+      </div>
+    }
+
+    <div class="course-footer">
+      <span class="publish-date">📅 {{ getFormattedDate() }}</span>
+      <button class="action-button">
+        {{ course.progress > 0 ? 'Продолжить' : 'Начать' }}
+      </button>
+    </div>
+  </div>
+</div>

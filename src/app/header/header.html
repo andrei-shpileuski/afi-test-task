@@ -1,0 +1,11 @@
+<header class="header">
+  <div class="logo-wrapper">
+    <img class="logo" src="/icons/logos/afi-logo-big-black.webp" alt="">
+  </div>
+
+  @if (isAuth()) {
+    <button class="button logout" (click)="logout()">Выйти</button>
+  } @else {
+    <button class="button" (click)="login()">Войти</button>
+  }
+</header>

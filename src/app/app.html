@@ -1,0 +1,13 @@
+<app-header/>
+
+<section class="catalog">
+  <div class="catalog-content">
+    @for(course of courses | async; track $index) {
+      <app-card
+        [course]="course"
+      />
+    }
+  </div>
+
+  <button class="button" (click)="loadMore()">ИСЧО</button>
+</section>
