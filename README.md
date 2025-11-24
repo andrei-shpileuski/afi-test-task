@@ -1,1 +1,2 @@
 # afi-test-task
+//
