@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import {Header} from './header/header';
-import {HttpClient} from '@angular/common/http';
 import {Course, CoursesApiService} from './services/courses-api-service';
 import {BehaviorSubject} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {Card} from './card/card';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  imports: [Header, AsyncPipe, Card],
+  imports: [Header, AsyncPipe, Card, RouterOutlet],
   styleUrl: './app.scss'
 })
 export class App {
